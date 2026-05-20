@@ -1,0 +1,141 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: radial-gradient(
+      ellipse at top left,
+      rgba(161, 64, 20, 0.05) 0%,
+      transparent 55%
+    ),
+    radial-gradient(ellipse at bottom right, rgba(20, 17, 12, 0.04) 0%, transparent 60%);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.75rem;
+  border-bottom: 1px solid var(--rule);
+  background: rgba(255, 253, 248, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.015em;
+  transition: transform 160ms var(--ease-out);
+}
+
+.brand:active {
+  transform: scale(0.97);
+}
+
+.brand-mark {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--ink-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  padding: 0.16rem 0.4rem;
+  border-radius: 0.3rem;
+  transform: translateY(-3px);
+  background: var(--sheet);
+}
+
+.brand-name {
+  font-style: italic;
+}
+
+.topnav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.topnav a {
+  position: relative;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.45rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+
+.topnav a::after {
+  content: '';
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.32rem;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .topnav a:hover {
+    color: var(--ink);
+  }
+  .topnav a:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.topnav a:active {
+  transform: scale(0.97);
+}
+
+.topnav a.active {
+  color: var(--ink);
+}
+
+.topnav a.active::after {
+  transform: scaleX(1);
+}
+
+main {
+  flex: 1;
+}
+
+.appfoot {
+  border-top: 1px solid var(--rule);
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--ink-muted);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  background: var(--sheet);
+}
+
+.appfoot code {
+  background: var(--paper-deep);
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--ink-soft);
+}

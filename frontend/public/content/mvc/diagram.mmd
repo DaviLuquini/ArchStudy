@@ -1,0 +1,19 @@
+flowchart LR
+    Client["Cliente HTTP"]
+
+    subgraph ap["Camada de apresentação"]
+      Controller["AccountsController"]
+    end
+    subgraph sv["Camada de serviço"]
+      Service["AccountService<br/>TransferService"]
+    end
+    subgraph dt["Camada de dados"]
+      Repo["AccountRepository<br/>TransactionRepository"]
+    end
+
+    Db[("MvcDbContext · SQLite")]
+
+    Client --> Controller
+    Controller --> Service
+    Service --> Repo
+    Repo --> Db

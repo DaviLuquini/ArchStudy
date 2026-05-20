@@ -1,0 +1,10 @@
+<Project>
+
+  <ItemGroup Condition="'$(MSBuildProjectName)' != 'ArchStudy.Host' AND '$(MSBuildProjectName)' != 'ArchStudy.Shared'">
+    <Using Include="Microsoft.AspNetCore.Builder" />
+    <Using Include="Microsoft.AspNetCore.Http" />
+    <Using Include="Microsoft.AspNetCore.Routing" />
+    <Using Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+
+</Project>

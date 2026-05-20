@@ -1,0 +1,12 @@
+<Solution>
+  <Project Path="ArchStudy.Clean/ArchStudy.Clean.csproj" />
+  <Project Path="ArchStudy.Cqrs/ArchStudy.Cqrs.csproj" />
+  <Project Path="ArchStudy.Ddd/ArchStudy.Ddd.csproj" />
+  <Project Path="ArchStudy.FeatureBased/ArchStudy.FeatureBased.csproj" />
+  <Project Path="ArchStudy.Hexagonal/ArchStudy.Hexagonal.csproj" />
+  <Project Path="ArchStudy.Host/ArchStudy.Host.csproj" />
+  <Project Path="ArchStudy.Mvc/ArchStudy.Mvc.csproj" />
+  <Project Path="ArchStudy.Onion/ArchStudy.Onion.csproj" />
+  <Project Path="ArchStudy.Shared/ArchStudy.Shared.csproj" />
+  <Project Path="ArchStudy.VerticalSlice/ArchStudy.VerticalSlice.csproj" />
+</Solution>

@@ -1,0 +1,22 @@
+flowchart TB
+    Client[Cliente HTTP] --> EP[CqrsEndpoints]
+
+    subgraph "Write side"
+      Cmd["CreateAccountCommand · DepositCommand<br/>WithdrawCommand · TransferCommand"]
+      CH[ICommandHandler]
+      WCtx[(CqrsWriteDbContext)]
+      Cmd --> CH --> WCtx
+    end
+
+    subgraph "Read side"
+      Qry["GetAccountQuery · GetStatementQuery"]
+      QH[IQueryHandler]
+      RCtx[(CqrsReadDbContext<br/>AsNoTracking)]
+      Qry --> QH --> RCtx
+    end
+
+    EP -->|POST| Cmd
+    EP -->|GET| Qry
+
+    WCtx -.SQLite.-> Storage[(archstudy-cqrs.db)]
+    RCtx -.SQLite.-> Storage

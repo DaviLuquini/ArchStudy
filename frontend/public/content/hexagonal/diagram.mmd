@@ -1,0 +1,23 @@
+flowchart TB
+    subgraph "Driving Adapters"
+      Http[HTTP Endpoints]
+    end
+
+    subgraph "Domain + Application (núcleo)"
+      DP[Driving Ports<br/>IAccountUseCases<br/>ITransferUseCase]
+      UC[AccountUseCases<br/>TransferUseCase]
+      D[Account / Transaction<br/>regras de domínio]
+      DV[Driven Ports<br/>IAccountStore<br/>ITransactionStore<br/>ITransactionalScope]
+      DP --> UC
+      UC --> D
+      UC --> DV
+    end
+
+    subgraph "Driven Adapters"
+      Ef[EfAccountStore<br/>EfTransactionStore<br/>EfTransactionalScope]
+      Db[(HexagonalDbContext)]
+      Ef --> Db
+    end
+
+    Http -->|chama| DP
+    DV -.implementado por.-> Ef

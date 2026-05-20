@@ -1,0 +1,22 @@
+flowchart TB
+    subgraph "Presentation (mais externa)"
+      P[OnionEndpoints]
+    end
+    subgraph "Infrastructure"
+      I1[OnionDbContext]
+      I2[AccountRepository<br/>TransactionRepository<br/>UnitOfWork]
+    end
+    subgraph "Application"
+      A1[IAccountRepository<br/>ITransactionRepository<br/>IUnitOfWork]
+      A2[AccountAppService<br/>TransferAppService]
+    end
+    subgraph "Domain (centro)"
+      D1[Account<br/>Transaction]
+    end
+
+    P --> A2
+    A2 --> A1
+    I2 -.implementa.-> A1
+    A2 --> D1
+    I2 --> I1
+    I1 -.persiste.-> D1

@@ -1,0 +1,27 @@
+flowchart TB
+    subgraph fw["Frameworks · camada mais externa"]
+      W["CleanEndpoints · Web Adapter<br/>traduz UseCaseResult em resposta HTTP"]
+    end
+
+    subgraph uc["Use Cases · uma classe por caso de uso"]
+      U["CreateAccountUseCase · DepositUseCase<br/>WithdrawUseCase · TransferUseCase<br/>GetAccountUseCase · GetStatementUseCase"]
+    end
+
+    subgraph en["Entities · centro"]
+      E["Account · Transaction<br/>validação retorna bool, sem exceções"]
+    end
+
+    subgraph cm["Common · contratos"]
+      G["IAccountGateway · ITransactionGateway<br/>IPersistenceContext · UseCaseResult&lt;T&gt;"]
+    end
+
+    subgraph ad["Adapters"]
+      EF["EfAccountGateway · EfTransactionGateway<br/>EfPersistenceContext"]
+      Db[("CleanDbContext")]
+      EF --> Db
+    end
+
+    W --> U
+    U --> E
+    U --> G
+    G -.implementado por.-> EF

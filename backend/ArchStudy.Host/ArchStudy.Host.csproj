@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArchStudy.Shared\ArchStudy.Shared.csproj" />
+    <ProjectReference Include="..\ArchStudy.Mvc\ArchStudy.Mvc.csproj" />
+    <ProjectReference Include="..\ArchStudy.FeatureBased\ArchStudy.FeatureBased.csproj" />
+    <ProjectReference Include="..\ArchStudy.VerticalSlice\ArchStudy.VerticalSlice.csproj" />
+    <ProjectReference Include="..\ArchStudy.Onion\ArchStudy.Onion.csproj" />
+    <ProjectReference Include="..\ArchStudy.Hexagonal\ArchStudy.Hexagonal.csproj" />
+    <ProjectReference Include="..\ArchStudy.Clean\ArchStudy.Clean.csproj" />
+    <ProjectReference Include="..\ArchStudy.Ddd\ArchStudy.Ddd.csproj" />
+    <ProjectReference Include="..\ArchStudy.Cqrs\ArchStudy.Cqrs.csproj" />
+  </ItemGroup>
+
+</Project>

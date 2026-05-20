@@ -1,0 +1,37 @@
+flowchart TB
+    subgraph SA["Features/Accounts/"]
+      AC["AccountsController.cs"]
+      AS["AccountsService.cs"]
+      AR["AccountsRepository.cs"]
+      AC --> AS --> AR
+    end
+    subgraph SD["Features/Deposits/"]
+      DC["DepositsController.cs"]
+      DS["DepositsService.cs"]
+      DR["DepositsRepository.cs"]
+      DC --> DS --> DR
+    end
+    subgraph SW["Features/Withdrawals/"]
+      WC["WithdrawalsController.cs"]
+      WS["WithdrawalsService.cs"]
+      WR["WithdrawalsRepository.cs"]
+      WC --> WS --> WR
+    end
+    subgraph ST["Features/Transfers/"]
+      TC["TransfersController.cs"]
+      TS["TransfersService.cs"]
+      TR["TransfersRepository.cs"]
+      TC --> TS --> TR
+    end
+    subgraph SS["Features/Statements/"]
+      NC["StatementsController.cs"]
+      NS["StatementsService.cs"]
+      NR["StatementsRepository.cs"]
+      NC --> NS --> NR
+    end
+    Db[("Shared/<br/>FeatureBasedDbContext.cs")]
+    AR -.-> Db
+    DR -.-> Db
+    WR -.-> Db
+    TR -.-> Db
+    NR -.-> Db

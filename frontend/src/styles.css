@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  /* — Tipografia — */
+  --font-display: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-body: 'Newsreader', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-sans: 'Geist', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* — Paleta de papel — */
+  --paper: #f7f3eb;
+  --paper-deep: #efe7d6;
+  --sheet: #fffdf8;
+  --ink: #14110c;
+  --ink-soft: #44402f;
+  --ink-muted: #756f5d;
+  --rule: #e3d9c1;
+  --rule-soft: #ebe2cf;
+
+  /* — Accent — */
+  --accent: #a14014;
+  --accent-soft: #f2dccc;
+  --accent-tint: #fbf0e6;
+
+  /* — Categorias — */
+  --cat-camadas-bg: #ece4cd;
+  --cat-camadas-ink: #58502c;
+  --cat-features-bg: #d8e0d0;
+  --cat-features-ink: #3a4f29;
+  --cat-dominio-bg: #f0d9c0;
+  --cat-dominio-ink: #7a3c11;
+
+  /* — Easing — Emil-style — */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-feature-settings: 'liga' 1, 'kern' 1, 'ss01' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

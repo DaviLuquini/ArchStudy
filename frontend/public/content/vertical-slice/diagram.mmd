@@ -1,0 +1,37 @@
+flowchart TB
+    Client[Cliente HTTP]
+
+    subgraph "Features/Deposit.cs"
+      direction TB
+      DE[DepositEndpoint]
+      DC[DepositCommand]
+      DH[DepositHandler]
+      DE --> DC --> DH
+    end
+    subgraph "Features/Withdraw.cs"
+      direction TB
+      WE[WithdrawEndpoint]
+      WC[WithdrawCommand]
+      WH[WithdrawHandler]
+      WE --> WC --> WH
+    end
+    subgraph "Features/Transfer.cs"
+      direction TB
+      TE[TransferEndpoint]
+      TC[TransferCommand]
+      TH[TransferHandler]
+      TE --> TC --> TH
+    end
+
+    Db[(VsDbContext)]
+
+    Client --> DE
+    Client --> WE
+    Client --> TE
+    DH --> Db
+    WH --> Db
+    TH --> Db
+
+    style DH fill:#fef3c7,stroke:#b45309
+    style WH fill:#fef3c7,stroke:#b45309
+    style TH fill:#fef3c7,stroke:#b45309

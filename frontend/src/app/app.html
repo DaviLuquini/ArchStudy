@@ -1,0 +1,21 @@
+<div class="app-shell">
+  <header class="topbar">
+    <a class="brand" routerLink="/">
+      <span class="brand-mark" aria-hidden="true">⌬ 8</span>
+      <span class="brand-name">ArchStudy</span>
+    </a>
+    <nav class="topnav" aria-label="Navegação principal">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Início</a>
+      <a routerLink="/compare" routerLinkActive="active">Comparar</a>
+    </nav>
+  </header>
+  <main>
+    <router-outlet />
+  </main>
+  <footer class="appfoot">
+    <p>
+      O domínio comum é uma conta bancária com depósito, saque, transferência e extrato. O código
+      .NET de cada arquitetura está em <code>backend/</code>.
+    </p>
+  </footer>
+</div>

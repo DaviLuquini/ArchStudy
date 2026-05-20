@@ -1,0 +1,29 @@
+flowchart TB
+    subgraph "Presentation"
+      P[DddEndpoints]
+    end
+    subgraph "Application"
+      A[AccountApplicationService<br/>orquestra]
+    end
+    subgraph "Domain"
+      direction TB
+      AR[Account<br/>«Aggregate Root»<br/>Deposit Withdraw]
+      VO[Money<br/>«Value Object»]
+      T[Transaction]
+      DS[TransferDomainService<br/>cross-aggregate]
+      IR[IAccountRepository<br/>ITransactionLog<br/>IUnitOfWork]
+
+      AR -.usa.-> VO
+      DS -.coordena.-> AR
+    end
+    subgraph "Infrastructure"
+      Impl[AccountRepository<br/>TransactionLog<br/>UnitOfWork]
+      Db[(DddDbContext)]
+    end
+
+    P --> A
+    A --> AR
+    A --> DS
+    A --> IR
+    Impl -.implementa.-> IR
+    Impl --> Db

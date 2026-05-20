@@ -1,0 +1,48 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.pdb
+*.dll
+*.exe
+[Dd]ebug/
+[Rr]elease/
+.vs/
+
+# SQLite (cada arquitetura cria seu próprio .db ao rodar)
+*.db
+*.db-shm
+*.db-wal
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+.nx/
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editores
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Plans / temp
+.claude/plans/
