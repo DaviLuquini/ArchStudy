@@ -1,0 +1,5 @@
+{
+  "buildCommand": "ng build",
+  "outputDirectory": "dist/arch-study-frontend/browser",
+  "framework": null
+}
