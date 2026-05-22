@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ArchStudy.Frontend": {
+    "arch-study-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
