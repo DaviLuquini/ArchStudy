@@ -13,23 +13,6 @@
 3. Endpoints injetam `ICommandHandler<...>` ou `IQueryHandler<...>` — a separação aparece no **tipo**.
 4. Aqui ambos os contextos apontam para o mesmo SQLite. Em sistemas reais, write em Postgres + read em ElasticSearch é típico — com sincronização em background.
 
-```text
-backend/ArchStudy.Cqrs/
-├── Commands/                       ← write side
-│   ├── CreateAccount.cs
-│   ├── Deposit.cs / Withdraw.cs / Transfer.cs
-│   └── (record : ICommand + ICommandHandler)
-├── Queries/                        ← read side
-│   ├── GetAccount.cs
-│   ├── GetStatement.cs
-│   └── (record : IQuery + IQueryHandler)
-├── Domain/WriteModel.cs            ← entidades de escrita
-├── Infrastructure/
-│   ├── CqrsWriteDbContext.cs       ← change tracking
-│   └── CqrsReadDbContext.cs        ← AsNoTracking
-└── Presentation/CqrsEndpoints.cs
-```
-
 ## Trade-offs
 
 | Prós | Contras |

@@ -1,0 +1,16 @@
+{
+  "Entities/Account.cs": "TryDeposit/TryWithdraw → bool, sem exceção",
+  "Entities/Transaction.cs": "entidade de domínio",
+  "UseCases/CreateAccount.cs": "uma classe = um caso de uso",
+  "UseCases/Deposit.cs": "retorna UseCaseResult<T> — Ok | NotFound | Invalid",
+  "UseCases/Withdraw.cs": "retorna UseCaseResult<T>",
+  "UseCases/Transfer.cs": "atravessa contas no mesmo Result",
+  "UseCases/GetAccount.cs": "consulta — pode retornar NotFound",
+  "UseCases/GetStatement.cs": "consulta — extrato",
+  "UseCases/Common/Gateways.cs": "IAccountGateway, ITransactionGateway, IPersistenceContext",
+  "UseCases/Common/Result.cs": "UseCaseResult<T> = Ok | NotFound | Invalid",
+  "Adapters/Persistence/EfGateways.cs": "implementações EF Core dos gateways",
+  "Adapters/Persistence/CleanDbContext.cs": "EF Core",
+  "Frameworks/Web/CleanEndpoints.cs": "pattern-match do Result em HTTP",
+  "CleanModule.cs": "composição"
+}

@@ -1,0 +1,11 @@
+{
+  "Domain/Account.cs": "Credit/Debit — invariantes no agregado",
+  "Domain/Transaction.cs": "entidade de domínio",
+  "Ports/Driving/IAccountUseCases.cs": "driving ports — o que o HTTP pode pedir",
+  "Ports/Driven/Stores.cs": "driven ports — o que o domínio precisa do mundo",
+  "Application/AccountUseCases.cs": "implementa driving, depende de driven",
+  "Adapters/Driving/Http/HexagonalEndpoints.cs": "HTTP adapter",
+  "Adapters/Driven/Persistence/EfStores.cs": "EF Core adapter dos driven ports",
+  "Adapters/Driven/Persistence/HexagonalDbContext.cs": "EF Core",
+  "HexagonalModule.cs": "wiring de ports e adapters"
+}

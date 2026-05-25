@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ARCHITECTURES } from '../data/architectures';
+import { SeoService } from '../data/seo';
 
 @Component({
   selector: 'app-home',
@@ -255,7 +256,7 @@ import { ARCHITECTURES } from '../data/architectures';
         .card:hover {
           border-color: var(--ink);
           transform: translateY(-3px);
-          box-shadow: 0 12px 32px -16px rgba(20, 17, 12, 0.22);
+          box-shadow: 0 12px 32px -16px rgba(12, 35, 64, 0.14);
         }
         .card:hover::before { opacity: 1; }
         .card:hover .card-arrow { transform: translateX(4px); }
@@ -338,6 +339,16 @@ import { ARCHITECTURES } from '../data/architectures';
 })
 export class HomePage {
   protected readonly architectures = ARCHITECTURES;
+  private readonly seo = inject(SeoService);
+
+  constructor() {
+    this.seo.update({
+      title: 'ArchStudy — 8 arquiteturas, 1 domínio',
+      description:
+        'Estudo visual de arquiteturas de software: o mesmo domínio bancário implementado em 8 estilos diferentes em .NET 10. Compare diagramas, leia trade-offs, abra o código real.',
+      type: 'website',
+    });
+  }
 
   protected orderLabel(order: number): string {
     return `№ ${order.toString().padStart(2, '0')} / 08`;

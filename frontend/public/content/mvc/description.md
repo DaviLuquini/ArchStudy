@@ -13,16 +13,6 @@ A regra "saldo não pode ficar negativo" vive **no service**, longe da entidade.
 3. `TransferService` orquestra duas contas dentro da mesma unidade de trabalho.
 4. Erros viram **exceções** — `ArgumentException`, `InvalidOperationException`, `KeyNotFoundException` — mapeadas para HTTP no `ExceptionMappingMiddleware`.
 
-```text
-backend/ArchStudy.Mvc/
-├── Controllers/AccountsController.cs   ← endpoints
-├── Services/AccountService.cs          ← regras
-├── Services/TransferService.cs
-├── Repositories/AccountRepository.cs   ← acesso a dados
-├── Repositories/TransactionRepository.cs
-└── Persistence/MvcDbContext.cs         ← EF Core + entidades anêmicas
-```
-
 ## Trade-offs
 
 | Prós | Contras |

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { Title } from '@angular/platform-browser';
 import { ARCHITECTURES, ContentService, findArchitecture } from '../data/architectures';
+import { SeoService } from '../data/seo';
 import { ArchSelector } from '../components/arch-selector';
 import { MermaidView } from '../components/mermaid-view';
 import { MarkdownView } from '../components/markdown-view';
@@ -235,7 +235,7 @@ export class ComparePage {
 
   private readonly content = inject(ContentService);
   private readonly router = inject(Router);
-  private readonly title = inject(Title);
+  private readonly seo = inject(SeoService);
 
   protected readonly leftSlug = signal(ARCHITECTURES[0].slug);
   protected readonly rightSlug = signal(ARCHITECTURES[1].slug);
@@ -251,7 +251,12 @@ export class ComparePage {
       const b = this.b();
       if (a && findArchitecture(a)) this.leftSlug.set(a);
       if (b && findArchitecture(b) && b !== this.leftSlug()) this.rightSlug.set(b);
-      this.title.setTitle('Comparar arquiteturas · ArchStudy');
+      this.seo.update({
+        title: 'Comparar arquiteturas · ArchStudy',
+        description:
+          'Coloque duas arquiteturas lado a lado para comparar diagramas, descrições e estrutura de pastas.',
+        type: 'website',
+      });
     });
 
     effect(() => {

@@ -13,20 +13,6 @@ E uma segunda regra que diferencia da Onion: **erros são valores, não exceçõ
 3. `Frameworks/Web/CleanEndpoints.cs` pattern-matcheia o resultado para `Results.Ok`, `Results.NotFound` ou `Results.BadRequest`. O HTTP é tradução, não decisão.
 4. `Adapters/Persistence/EfGateways.cs` implementa `IAccountGateway`, `ITransactionGateway`, `IPersistenceContext`.
 
-```text
-backend/ArchStudy.Clean/
-├── Entities/                            ← centro
-│   ├── Account.cs                       ← TryDeposit/TryWithdraw → bool
-│   └── Transaction.cs
-├── UseCases/                            ← uma classe por caso de uso
-│   ├── CreateAccount.cs
-│   ├── Deposit.cs / Withdraw.cs / Transfer.cs
-│   ├── GetAccount.cs / GetStatement.cs
-│   └── Common/Result.cs                 ← UseCaseResult<T> = Ok | NotFound | Invalid
-├── Adapters/Persistence/                ← EF Core gateways
-└── Frameworks/Web/CleanEndpoints.cs     ← traduz Result em HTTP
-```
-
 ## Trade-offs
 
 | Prós | Contras |

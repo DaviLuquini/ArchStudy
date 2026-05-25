@@ -14,24 +14,6 @@ Dentro de cada pasta ficam **os três arquivos** daquela feature — um controll
 4. Um único `FeatureBasedDbContext` mora em `Shared/` porque a tabela `Accounts` é referenciada por todas as features.
 5. Erros e validação são iguais ao MVC: exceções convertidas no middleware.
 
-```text
-backend/ArchStudy.FeatureBased/
-├── Features/
-│   ├── Accounts/
-│   │   ├── AccountsController.cs    ← endpoints: criar e consultar
-│   │   ├── AccountsService.cs       ← regras de negócio
-│   │   └── AccountsRepository.cs    ← acesso a dados
-│   ├── Deposits/
-│   │   ├── DepositsController.cs
-│   │   ├── DepositsService.cs
-│   │   └── DepositsRepository.cs
-│   ├── Withdrawals/                 ← mesma tríade Controller/Service/Repository
-│   ├── Transfers/                   ← mesma tríade
-│   └── Statements/                  ← mesma tríade
-└── Shared/
-    └── FeatureBasedDbContext.cs     ← DbContext compartilhado
-```
-
 ## Trade-offs
 
 | Prós | Contras |

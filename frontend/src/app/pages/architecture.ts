@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Title } from '@angular/platform-browser';
 import { ARCHITECTURES, ContentService, findArchitecture } from '../data/architectures';
+import { SeoService } from '../data/seo';
 import { MermaidView } from '../components/mermaid-view';
 import { MarkdownView } from '../components/markdown-view';
+import { StructureSection } from '../components/structure-section';
 
 @Component({
   selector: 'app-architecture',
-  imports: [RouterLink, MermaidView, MarkdownView],
+  imports: [RouterLink, MermaidView, MarkdownView, StructureSection],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @let arch = architecture();
@@ -66,6 +67,14 @@ import { MarkdownView } from '../components/markdown-view';
           } @else if (error()) {
             <p class="error" role="alert">Falha ao carregar conteúdo.</p>
           }
+        </section>
+
+        <section class="section" aria-labelledby="structure-heading">
+          <div class="section-head">
+            <h2 id="structure-heading">Estrutura</h2>
+            <span class="section-meta">Pastas e arquivos do backend</span>
+          </div>
+          <app-structure-section [slug]="arch.slug" />
         </section>
 
         <section class="section" aria-labelledby="description-heading">
@@ -316,7 +325,7 @@ export class ArchitecturePage {
   readonly slug = input.required<string>();
 
   private readonly content = inject(ContentService);
-  private readonly title = inject(Title);
+  private readonly seo = inject(SeoService);
 
   protected readonly architecture = computed(() => findArchitecture(this.slug()));
   protected readonly loading = signal(true);
@@ -362,7 +371,11 @@ export class ArchitecturePage {
         this.loading.set(false);
         return;
       }
-      this.title.setTitle(`${arch.name} · ArchStudy`);
+      this.seo.update({
+        title: `${arch.name} · ArchStudy`,
+        description: arch.tagline,
+        type: 'article',
+      });
       this.loading.set(true);
       this.diagram.set(null);
       this.description.set(null);

@@ -1,0 +1,10 @@
+{
+  "Features/CreateAccount.cs": "record + handler + endpoint",
+  "Features/GetAccount.cs": "record + handler + endpoint",
+  "Features/GetStatement.cs": "record + handler + endpoint",
+  "Features/Deposit.cs": "record + handler + endpoint",
+  "Features/Withdraw.cs": "record + handler + endpoint",
+  "Features/Transfer.cs": "record + handler + endpoint",
+  "Persistence/VsDbContext.cs": "EF Core (compartilhado)",
+  "VerticalSliceModule.cs": "registra cada IRequestHandler<T> individualmente"
+}

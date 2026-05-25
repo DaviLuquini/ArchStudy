@@ -1,0 +1,12 @@
+{
+  "Commands/CreateAccount.cs": "record : ICommand + handler",
+  "Commands/Deposit.cs": "record : ICommand + handler",
+  "Commands/Withdraw.cs": "record : ICommand + handler",
+  "Commands/Transfer.cs": "record : ICommand + handler",
+  "Queries/GetAccount.cs": "record : IQuery + handler — AsNoTracking",
+  "Queries/GetStatement.cs": "projeta direto pro DTO, zero entidades em memória",
+  "Domain/WriteModel.cs": "entidades de escrita",
+  "Infrastructure/CqrsDbContext.cs": "WriteDbContext (tracking) + ReadDbContext (AsNoTracking)",
+  "Presentation/CqrsEndpoints.cs": "POST → ICommandHandler, GET → IQueryHandler",
+  "CqrsModule.cs": "registra Write e Read separadamente"
+}

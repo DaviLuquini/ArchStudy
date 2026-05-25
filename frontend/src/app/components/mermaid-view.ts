@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  ViewEncapsulation,
   effect,
   inject,
   input,
@@ -21,28 +22,28 @@ function ensureInitialized() {
     securityLevel: 'strict',
     fontFamily: 'Newsreader, ui-serif, Georgia, serif',
     themeVariables: {
-      background: '#fffdf8',
-      primaryColor: '#fbf0e6',
-      primaryTextColor: '#14110c',
-      primaryBorderColor: '#a14014',
-      lineColor: '#756f5d',
-      secondaryColor: '#efe7d6',
-      tertiaryColor: '#f7f3eb',
-      mainBkg: '#fffdf8',
-      nodeTextColor: '#14110c',
-      clusterBkg: '#f7f3eb',
-      clusterBorder: '#e3d9c1',
-      titleColor: '#14110c',
-      edgeLabelBackground: '#fffdf8',
+      background: '#ffffff',
+      primaryColor: '#ffffff',
+      primaryTextColor: '#0c2340',
+      primaryBorderColor: '#1a3a6e',
+      lineColor: '#4a5568',
+      secondaryColor: '#e8edf5',
+      tertiaryColor: '#e8edf5',
+      mainBkg: '#ffffff',
+      nodeTextColor: '#0c2340',
+      clusterBkg: '#e8edf5',
+      clusterBorder: '#7a8aa3',
+      titleColor: '#0c2340',
+      edgeLabelBackground: '#ffffff',
       fontFamily: 'Newsreader, ui-serif, Georgia, serif',
-      fontSize: '14px',
+      fontSize: '18px',
     },
     flowchart: {
       curve: 'basis',
-      padding: 14,
-      nodeSpacing: 38,
+      padding: 16,
+      nodeSpacing: 55,
       rankSpacing: 50,
-      useMaxWidth: true,
+      useMaxWidth: false,
     },
   });
   initialized = true;
@@ -51,6 +52,7 @@ function ensureInitialized() {
 @Component({
   selector: 'app-mermaid-view',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   template: `
     <figure class="mermaid-figure">
       <div class="mermaid-render" #host></div>
@@ -66,15 +68,22 @@ function ensureInitialized() {
       }
       .mermaid-figure {
         margin: 0;
+        padding: 1.25rem 1rem;
+        background: var(--paper-deep);
+        border: 1px solid var(--rule);
+        border-radius: 0.85rem;
+        box-shadow: 0 8px 24px -12px rgba(12, 35, 64, 0.12);
       }
       .mermaid-render {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 320px;
+        min-height: 180px;
         overflow-x: auto;
       }
       .mermaid-render :where(svg) {
+        width: 100%;
+        max-height: 84vh;
         max-width: 100%;
         height: auto;
       }

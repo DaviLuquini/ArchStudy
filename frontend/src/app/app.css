@@ -11,10 +11,10 @@
   min-height: 100vh;
   background-image: radial-gradient(
       ellipse at top left,
-      rgba(161, 64, 20, 0.05) 0%,
+      rgba(26, 58, 110, 0.04) 0%,
       transparent 55%
     ),
-    radial-gradient(ellipse at bottom right, rgba(20, 17, 12, 0.04) 0%, transparent 60%);
+    radial-gradient(ellipse at bottom right, rgba(160, 179, 208, 0.10) 0%, transparent 60%);
 }
 
 .topbar {
@@ -23,7 +23,7 @@
   justify-content: space-between;
   padding: 1.1rem 1.75rem;
   border-bottom: 1px solid var(--rule);
-  background: rgba(255, 253, 248, 0.78);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   position: sticky;
@@ -69,7 +69,32 @@
 .topnav {
   display: flex;
   gap: 0.25rem;
+  align-items: center;
 }
+
+.topnav-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem;
+  margin-left: 0.4rem;
+  border-radius: 0.45rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 160ms var(--ease-out), background 160ms var(--ease-out),
+    transform 160ms var(--ease-out);
+}
+
+.topnav-github svg { display: block; }
+
+@media (hover: hover) and (pointer: fine) {
+  .topnav-github:hover {
+    color: var(--ink);
+    background: var(--accent-tint);
+  }
+}
+
+.topnav-github:active { transform: scale(0.94); }
 
 .topnav a {
   position: relative;
@@ -123,13 +148,36 @@ main {
 
 .appfoot {
   border-top: 1px solid var(--rule);
-  padding: 1.5rem;
+  padding: 1.8rem 1.5rem;
   text-align: center;
   color: var(--ink-muted);
   font-family: var(--font-sans);
   font-size: 0.82rem;
   background: var(--sheet);
 }
+
+.appfoot-intro {
+  margin: 0 auto 0.75rem;
+  max-width: 62ch;
+  line-height: 1.55;
+}
+
+.appfoot-cta {
+  margin: 0 auto;
+  max-width: 62ch;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.appfoot-cta a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 160ms var(--ease-out);
+}
+
+.appfoot-cta a:hover { color: var(--ink); }
 
 .appfoot code {
   background: var(--paper-deep);
@@ -138,4 +186,9 @@ main {
   font-family: var(--font-mono);
   font-size: 0.85em;
   color: var(--ink-soft);
+}
+
+.whitespace-no-break,
+.whitespace-no-wrap {
+  white-space: nowrap;
 }

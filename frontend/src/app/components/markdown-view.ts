@@ -129,15 +129,15 @@ marked.use({ gfm: true, breaks: false });
       }
 
       .md-prose :where(pre) {
-        background: var(--ink);
-        color: var(--paper);
+        background: var(--paper-deep);
+        color: var(--ink);
         padding: 1.1rem 1.3rem;
         border-radius: 0.55rem;
         overflow-x: auto;
         font-size: 0.88rem;
         line-height: 1.6;
         margin: 1.2rem 0;
-        border: 1px solid var(--ink);
+        border: 1px solid var(--rule);
         box-shadow: 0 1px 0 var(--rule);
       }
 

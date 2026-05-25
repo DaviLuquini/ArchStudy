@@ -1,0 +1,12 @@
+{
+  "Domain/Account.cs": "Aggregate Root — Deposit/Withdraw, invariantes internas",
+  "Domain/Money.cs": "Value Object imutável — Plus/Minus/IsLessThan",
+  "Domain/Transaction.cs": "entidade",
+  "Domain/TransferDomainService.cs": "Domain Service — atravessa dois agregados",
+  "Domain/IAccountRepository.cs": "contrato — retorna agregado completo",
+  "Application/AccountApplicationService.cs": "orquestra: carrega agregado, chama Domain Service",
+  "Infrastructure/DddDbContext.cs": "EF Core com OwnsOne para Money",
+  "Infrastructure/Repositories.cs": "implementações dos repositórios",
+  "Presentation/DddEndpoints.cs": "Minimal API",
+  "DddModule.cs": "composição"
+}

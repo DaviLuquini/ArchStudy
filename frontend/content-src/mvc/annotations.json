@@ -1,0 +1,9 @@
+{
+  "Controllers/AccountsController.cs": "endpoints HTTP",
+  "Services/AccountService.cs": "regras: criar conta, depositar, sacar, consultar",
+  "Services/TransferService.cs": "orquestra duas contas na mesma transação",
+  "Repositories/AccountRepository.cs": "EF Core: leituras e escritas de Account",
+  "Repositories/TransactionRepository.cs": "EF Core: log de transações",
+  "Persistence/MvcDbContext.cs": "EF Core + entidades anêmicas",
+  "MvcModule.cs": "registra DbContext, services e repositories"
+}

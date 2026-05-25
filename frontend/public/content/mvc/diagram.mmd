@@ -1,19 +1,22 @@
-flowchart LR
-    Client["Cliente HTTP"]
-
+flowchart TB
     subgraph ap["Camada de apresentação"]
       Controller["AccountsController"]
     end
+
     subgraph sv["Camada de serviço"]
-      Service["AccountService<br/>TransferService"]
+      AS["AccountService"]
+      TS["TransferService"]
     end
+
     subgraph dt["Camada de dados"]
-      Repo["AccountRepository<br/>TransactionRepository"]
+      AR["AccountRepository"]
+      TR["TransactionRepository"]
+      Db[("MvcDbContext · SQLite")]
+      AR --> Db
+      TR --> Db
     end
 
-    Db[("MvcDbContext · SQLite")]
-
-    Client --> Controller
-    Controller --> Service
-    Service --> Repo
-    Repo --> Db
+    Controller --> AS
+    Controller --> TS
+    AS --> AR
+    TS --> TR

@@ -11,6 +11,17 @@ export interface Architecture {
   prefix: string;
 }
 
+export interface FileEntry {
+  path: string;
+  annotation: string | null;
+  content: string;
+}
+
+export interface FilesPayload {
+  root: string;
+  files: FileEntry[];
+}
+
 export const ARCHITECTURES: readonly Architecture[] = [
   {
     slug: 'mvc',
@@ -85,21 +96,35 @@ export function findArchitecture(slug: string): Architecture | undefined {
 @Injectable({ providedIn: 'root' })
 export class ContentService {
   private readonly http = inject(HttpClient);
-  private readonly cache = new Map<string, Promise<string>>();
+  private readonly textCache = new Map<string, Promise<string>>();
+  private readonly jsonCache = new Map<string, Promise<unknown>>();
 
   loadDiagram(slug: string): Promise<string> {
-    return this.load(`content/${slug}/diagram.mmd`);
+    return this.loadText(`content/${slug}/diagram.mmd`);
   }
 
   loadDescription(slug: string): Promise<string> {
-    return this.load(`content/${slug}/description.md`);
+    return this.loadText(`content/${slug}/description.md`);
   }
 
-  private load(path: string): Promise<string> {
-    let pending = this.cache.get(path);
+  loadFiles(slug: string): Promise<FilesPayload> {
+    return this.loadJson<FilesPayload>(`content/${slug}/files.json`);
+  }
+
+  private loadText(path: string): Promise<string> {
+    let pending = this.textCache.get(path);
     if (!pending) {
       pending = firstValueFrom(this.http.get(path, { responseType: 'text' }));
-      this.cache.set(path, pending);
+      this.textCache.set(path, pending);
+    }
+    return pending;
+  }
+
+  private loadJson<T>(path: string): Promise<T> {
+    let pending = this.jsonCache.get(path) as Promise<T> | undefined;
+    if (!pending) {
+      pending = firstValueFrom(this.http.get<T>(path));
+      this.jsonCache.set(path, pending as Promise<unknown>);
     }
     return pending;
   }

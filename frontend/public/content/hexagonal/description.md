@@ -14,18 +14,6 @@
 3. `Domain/Account.cs` valida internamente em `Credit` / `Debit` — invariantes ficam no agregado.
 4. `Adapters/Driven/Persistence/EfStores.cs` implementa os driven ports com EF Core. Trocar SQLite por Postgres = outro adapter.
 
-```text
-backend/ArchStudy.Hexagonal/
-├── Domain/                          ← núcleo
-├── Ports/
-│   ├── Driving/IAccountUseCases.cs  ← o que o HTTP pode pedir
-│   └── Driven/Stores.cs             ← o que o domínio precisa
-├── Application/AccountUseCases.cs   ← implementa driving, usa driven
-└── Adapters/
-    ├── Driving/Http/                ← HTTP adapter
-    └── Driven/Persistence/          ← EF Core adapter
-```
-
 ## Trade-offs
 
 | Prós | Contras |

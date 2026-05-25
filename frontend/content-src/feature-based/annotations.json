@@ -1,0 +1,19 @@
+{
+  "Features/Accounts/AccountsController.cs": "endpoints: criar e consultar conta",
+  "Features/Accounts/AccountsService.cs": "regras da feature Accounts",
+  "Features/Accounts/AccountsRepository.cs": "acesso a dados próprio",
+  "Features/Deposits/DepositsController.cs": "POST /deposits",
+  "Features/Deposits/DepositsService.cs": "regras de depósito",
+  "Features/Deposits/DepositsRepository.cs": "FindAccount próprio — duplicação aceita",
+  "Features/Withdrawals/WithdrawalsController.cs": "POST /withdrawals",
+  "Features/Withdrawals/WithdrawalsService.cs": "regras de saque",
+  "Features/Withdrawals/WithdrawalsRepository.cs": "FindAccount próprio",
+  "Features/Transfers/TransfersController.cs": "POST /transfers",
+  "Features/Transfers/TransfersService.cs": "atravessa duas contas",
+  "Features/Transfers/TransfersRepository.cs": "leituras e persistência",
+  "Features/Statements/StatementsController.cs": "GET /statements",
+  "Features/Statements/StatementsService.cs": "monta o extrato",
+  "Features/Statements/StatementsRepository.cs": "query do extrato",
+  "Shared/FeatureBasedDbContext.cs": "DbContext compartilhado entre features",
+  "FeatureBasedModule.cs": "registra todas as features"
+}

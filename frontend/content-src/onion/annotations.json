@@ -1,0 +1,10 @@
+{
+  "Domain/Account.cs": "Aggregate com Deposit/Withdraw — protege invariantes",
+  "Domain/Transaction.cs": "entidade de domínio",
+  "Application/Interfaces.cs": "IAccountRepository, ITransactionRepository, IUnitOfWork",
+  "Application/AccountAppService.cs": "carrega agregado, chama domínio, salva via UoW",
+  "Infrastructure/OnionDbContext.cs": "EF Core",
+  "Infrastructure/Repositories.cs": "implementações dos repositórios + UnitOfWork",
+  "Presentation/OnionEndpoints.cs": "Minimal API → AppService",
+  "OnionModule.cs": "registra contexto, repos, services, endpoints"
+}

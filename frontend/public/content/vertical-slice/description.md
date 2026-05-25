@@ -13,19 +13,6 @@ A premissa é desconfortável: **duplicação é melhor que abstração errada**
 3. O endpoint injeta `IRequestHandler<TRequest, TResponse>` direto. Sem `IMediator`, sem indireção.
 4. O `VsDbContext` é usado **dentro** do handler. Não há repository.
 
-```text
-backend/ArchStudy.VerticalSlice/
-├── Features/
-│   ├── CreateAccount.cs   ← record + handler + endpoint
-│   ├── GetAccount.cs
-│   ├── GetStatement.cs
-│   ├── Deposit.cs
-│   ├── Withdraw.cs
-│   └── Transfer.cs
-├── Persistence/VsDbContext.cs
-└── VerticalSliceModule.cs
-```
-
 ## Trade-offs
 
 | Prós | Contras |

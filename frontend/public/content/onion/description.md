@@ -13,20 +13,6 @@ A regra "saldo não pode ficar negativo" mora **dentro de `Account.Withdraw`**, 
 3. `Domain/Account.cs` valida internamente em `Deposit` / `Withdraw`. Setters privados, instanciação via `Account.Create()`.
 4. `Infrastructure/AccountRepository.cs` implementa `IAccountRepository` via EF Core — invisível para o domínio.
 
-```text
-backend/ArchStudy.Onion/
-├── Domain/                  ← núcleo, sem dependências
-│   ├── Account.cs           ← Deposit / Withdraw com validação
-│   └── Transaction.cs
-├── Application/             ← contratos + orquestração
-│   ├── Interfaces.cs        ← IAccountRepository, IUnitOfWork...
-│   └── AccountAppService.cs
-├── Infrastructure/          ← implementações EF Core
-│   ├── OnionDbContext.cs
-│   └── Repositories.cs
-└── Presentation/OnionEndpoints.cs
-```
-
 ## Trade-offs
 
 | Prós | Contras |

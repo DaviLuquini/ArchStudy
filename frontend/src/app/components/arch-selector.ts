@@ -193,8 +193,8 @@ let instanceCounter = 0;
         background: var(--sheet);
         border: 1px solid var(--rule);
         border-radius: 0.85rem;
-        box-shadow: 0 16px 34px -14px rgba(20, 17, 12, 0.32),
-          0 2px 8px -4px rgba(20, 17, 12, 0.16);
+        box-shadow: 0 16px 34px -14px rgba(12, 35, 64, 0.18),
+          0 2px 8px -4px rgba(12, 35, 64, 0.08);
         max-height: 20rem;
         overflow-y: auto;
         transform-origin: top center;
